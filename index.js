@@ -52,7 +52,7 @@ client.once("ready", () => {
 
   const changingstatus = [
     `Version: 1.0.0 | /help`,
-    `Watching Over ${client.guilds.cache.size} servers`,
+    `Watching Over ${client.guilds.cache.size} Servers`,
   ];
 
   let index = 0;
