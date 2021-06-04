@@ -3,7 +3,7 @@
   "name": "nightly-dev",
   "version": "1.2.5 ",
   "description": "Open source discord bot",
-  "build": "Beta",
+  "build": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
