@@ -2,7 +2,7 @@
 const Discord = require("discord.js");
 //const { prefix } = require("./config.json");
 const fs = require("fs");
-require('dotenv').config();
+require("dotenv").config();
 
 const client = new Client({
   intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES],
@@ -25,8 +25,9 @@ client.on("interaction", async (interaction) => {
       command = cmd;
     }
   }
-if (command !== null) {
-  command.execute(interaction, client);}
+  if (command !== null) {
+    command.execute(interaction, client);
+  }
 });
 
 client.once("ready", () => {
@@ -48,6 +49,19 @@ client.once("ready", () => {
   }
 
   console.log(`Logged in as ${client.user.tag}`);
+
+  const changingstatus = [
+    `Nightly Version: ${package.version}`,
+    `Watching Over ${client.guilds.cache.size} servers`,
+  ];
+
+  let index = 0;
+  setInterval(() => {
+    if (index === changingstatus.length) index = 0;
+    const status = changingstatus[index];
+    client.user.setActivity(status, { type: "PLAYING" }).catch(console.error);
+    index++;
+  }, 5000);
 });
 
 client.login(process.env.botoken);
