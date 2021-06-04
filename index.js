@@ -8,12 +8,11 @@ const client = new Client({
 });
 
 client.commands = new Discord.Collection();
+client.buttons = new Discord.Collection();
 
 const commandFiles = fs
   .readdirSync("./commands")
   .filter((file) => file.endsWith(".js"));
-
-client.buttons = new Discord.Collection();
 
 const buttonFiles = fs
   .readdirSync("./buttons")
@@ -39,11 +38,15 @@ client.on("interaction", async (interaction) => {
   if (!interaction.isMessageComponent() && interaction.componentType !== 'BUTTON') return;
   var button = null;
 
-  for (const file of buttonFiles) {
-    var btn = require(`./buttons/${file}`);
+  for (const file2 of buttonFiles) {
+    var btn = require(`./buttons/${file2}`);
 
     if (btn.name === interaction.customID) {
       buttton = btn;
+    
+    } else {
+      console.log(btn.name)
+      console.log(interaction.customID)
     }
   }
   if (button !== null) {

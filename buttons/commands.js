@@ -1,5 +1,6 @@
 const Discord = require("discord.js");
 const package = require('../package.json');
+
 module.exports = {
 	name: 'commands',
 	execute(interaction, client) {
