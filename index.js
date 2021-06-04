@@ -78,17 +78,16 @@ client.once("ready", () => {
 });
 
 const changingstatus = [
-  `Nightly`, 
-  `${client.users.cache.size} Users`
+  `Nightly`,
+  `${client.guilds.cache.size} servers`,
 ];
 
 let index = 0;
 setInterval(() => {
   if (index === changingstatus.length) index = 0;
   const status = changingstatus[index];
-  client.user.setActivity(status, { type: "PLAYING" });
+  client.user.setActivity(status, { type: "PLAYING" })
   index++;
 }, 5000);
-
 
 client.login(process.env.TOKEN);
