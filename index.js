@@ -86,7 +86,7 @@ let index = 0;
 setInterval(() => {
   if (index === changingstatus.length) index = 0;
   const status = changingstatus[index];
-  client.user.setActivity(status, { type: "WATCHING" });
+  client.user.setActivity(status, { type: "PLAYING" });
   index++;
 }, 5000);
 
