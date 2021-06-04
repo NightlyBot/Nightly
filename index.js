@@ -50,4 +50,17 @@ client.once("ready", () => {
   console.log(`Logged in as ${client.user.tag}`);
 });
 
-client.login(process.env.botoken);
+const changingstatus = [
+  `Nightly`,
+  `${client.guilds.cache.size} Servers`,
+];
+
+let index = 0;
+setInterval(() => {
+  if (index === changingstatus.length) index = 0;
+  const status = changingstatus[index];
+  client.user.setActivity(status, { type: "WATCHING" })
+  index++;
+}, 5000);
+
+client.login(process.env.TOKEN);

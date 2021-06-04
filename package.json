@@ -1,6 +1,6 @@
 {
-  "name": "nightly",
-  "version": "1.0.0",
+  "name": "nightly-dev",
+  "version": "1.1.4",
   "description": "Open source discord bot",
   "build": "",
   "main": "index.js",
