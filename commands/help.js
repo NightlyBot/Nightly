@@ -6,8 +6,8 @@ module.exports = {
 	execute(interaction, client) {
 		const embed = new Discord.MessageEmbed()
 		.setColor("#2F3136")
-		.setTitle(":ping_pong: this is a title	")
-		.setDescription("and this is a description, poggers?")
+		.setTitle(":wave: Nightly")
+		.addField('What is Nightly?','Nightly is an [](open source)')
 		.setFooter(`Nightly ${package.build} ${package.version}`,client.user.displayAvatarURL());
 
         const row = new Discord.MessageActionRow()
@@ -16,6 +16,10 @@ module.exports = {
                 .setCustomID('primary')
                 .setLabel('shiny button')
                 .setStyle('SUCCESS'),
+			new Discord.MessageButton()
+                .setCustomID('extra shiny button')
+                .setLabel('another shiny button')
+                .setStyle('DANGER'),
         );
 
      interaction.reply({ embeds: [embed],components: [row] });
