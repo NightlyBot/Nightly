@@ -86,7 +86,7 @@ client.once("ready", () => {
 
   const changingstatus = [
     `Nightly`,
-    `Over ${client.guilds.cache.size} Servers`,
+    ` ${client.users.cache.size} Users`,
   ];
 
   let index = 0;
