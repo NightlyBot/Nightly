@@ -1,6 +1,6 @@
 ﻿const { Client, Intents } = require("discord.js");
 const Discord = require("discord.js");
-const package = require('./package.json');
+const package = require("./package.json");
 const fs = require("fs");
 require("dotenv").config();
 
@@ -26,18 +26,23 @@ client.on("interaction", async (interaction) => {
     var cmd = require(`./commands/${file}`);
 
     if (cmd.name === interaction.commandName) {
-      if (cmd.permission === "ALL") { 
-      cmd.execute(interaction, client);
+      if (cmd.permission === "ALL") {
+        cmd.execute(interaction, client);
       } else {
         if (interaction.member.permissions.has(cmd.permission) === true) {
           cmd.execute(interaction, client);
         } else {
           const embed = new Discord.MessageEmbed()
-		        .setColor("#2F3136")
-		        .setTitle(":x: Invalid Permission Level")
-		        .setDescription("You do not have high enough permissions to execute this command")
-		        .setFooter(`Nightly ${package.build} ${package.version}`,client.user.displayAvatarURL());
-		        interaction.reply(embed);
+            .setColor("#2F3136")
+            .setTitle(":x: Invalid Permission Level")
+            .setDescription(
+              "You do not have high enough permissions to execute this command"
+            )
+            .setFooter(
+              `Nightly ${package.build} ${package.version}`,
+              client.user.displayAvatarURL()
+            );
+          interaction.reply(embed);
         }
       }
     }
@@ -45,7 +50,11 @@ client.on("interaction", async (interaction) => {
 });
 
 client.on("interaction", async (interaction) => {
-  if (!interaction.isMessageComponent() && interaction.componentType !== 'BUTTON') return;
+  if (
+    !interaction.isMessageComponent() &&
+    interaction.componentType !== "BUTTON"
+  )
+    return;
 
   for (const file2 of buttonFiles) {
     var btn = require(`./buttons/${file2}`);
@@ -74,21 +83,19 @@ client.once("ready", () => {
   }
 
   console.log(`Logged in as ${client.user.tag}`);
-  
+
+  const changingstatus = [
+    `Nightly`,
+    `Over ${client.guilds.cache.size} Servers`,
+  ];
+
+  let index = 0;
+  setInterval(() => {
+    if (index === changingstatus.length) index = 0;
+    const status = changingstatus[index];
+    client.user.setActivity(status, { type: "WATCHING" });
+    index++;
+  }, 5000);
 });
-
-const changingstatus = [
-  `Nightly`, 
-  `${client.users.cache.size} Users`
-];
-
-let index = 0;
-setInterval(() => {
-  if (index === changingstatus.length) index = 0;
-  const status = changingstatus[index];
-  client.user.setActivity(status, { type: "WATCHING" });
-  index++;
-}, 5000);
-
 
 client.login(process.env.TOKEN);
