@@ -1,5 +1,6 @@
 ﻿const { Client, Intents } = require("discord.js");
 const Discord = require("discord.js");
+const package = require('../package.json');
 //const { prefix } = require("./config.json");
 const fs = require("fs");
 require("dotenv").config();
