@@ -51,7 +51,7 @@ client.once("ready", () => {
   console.log(`Logged in as ${client.user.tag}`);
 
   const changingstatus = [
-    `Version: 1.0.0 | /help`,
+    `Version: 1.1.4 | /help`,
     `Watching Over ${client.guilds.cache.size} Servers`,
   ];
 
@@ -64,4 +64,4 @@ client.once("ready", () => {
   }, 5000);
 });
 
-client.login(process.env.botoken);
+client.login(process.env.TOKEN);
