@@ -1,6 +1,5 @@
 ﻿const { Client, Intents } = require("discord.js");
 const Discord = require("discord.js");
-const package = require('../package.json');
 //const { prefix } = require("./config.json");
 const fs = require("fs");
 require("dotenv").config();
@@ -52,7 +51,7 @@ client.once("ready", () => {
   console.log(`Logged in as ${client.user.tag}`);
 
   const changingstatus = [
-    `Nightly Version: ${package.version}`,
+    `Nightly Version: 1.0.0`,
     `Watching Over ${client.guilds.cache.size} servers`,
   ];
 
