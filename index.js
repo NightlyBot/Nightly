@@ -30,6 +30,12 @@ client.on("interaction", async (interaction) => {
   }
 });
 
+client.on("clickButton", async (button) => {
+  if (button.id === "primary") {
+    button.channel.send(`${button.clicker.user.tag} clicked a button!`)
+  }
+});
+
 client.once("ready", () => {
   client.application.commands.set([]);
   for (const file of commandFiles) {
