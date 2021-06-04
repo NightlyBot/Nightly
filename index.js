@@ -1,6 +1,6 @@
 ﻿const { Client, Intents } = require("discord.js");
 const Discord = require("discord.js");
-//const { prefix } = require("./config.json");
+const package = require('./package.json');
 const fs = require("fs");
 require("dotenv").config();
 
@@ -9,24 +9,49 @@ const client = new Client({
 });
 
 client.commands = new Discord.Collection();
+client.buttons = new Discord.Collection();
 
 const commandFiles = fs
   .readdirSync("./commands")
   .filter((file) => file.endsWith(".js"));
 
+const buttonFiles = fs
+  .readdirSync("./buttons")
+  .filter((file) => file.endsWith(".js"));
+
 client.on("interaction", async (interaction) => {
   if (!interaction.isCommand()) return;
-  var command = null;
 
   for (const file of commandFiles) {
     var cmd = require(`./commands/${file}`);
 
     if (cmd.name === interaction.commandName) {
-      command = cmd;
+      if (cmd.permission === "ALL") { 
+      cmd.execute(interaction, client);
+      } else {
+        if (interaction.member.permissions.has(cmd.permission) === true) {
+          cmd.execute(interaction, client);
+        } else {
+          const embed = new Discord.MessageEmbed()
+		        .setColor("#2F3136")
+		        .setTitle(":x: Invalid Permission Level")
+		        .setDescription("You do not have high enough permissions to execute this command")
+		        .setFooter(`Nightly ${package.build} ${package.version}`,client.user.displayAvatarURL());
+		        interaction.reply(embed);
+        }
+      }
     }
   }
-  if (command !== null) {
-    command.execute(interaction, client);
+});
+
+client.on("interaction", async (interaction) => {
+  if (!interaction.isMessageComponent() && interaction.componentType !== 'BUTTON') return;
+
+  for (const file2 of buttonFiles) {
+    var btn = require(`./buttons/${file2}`);
+    if (btn.name === interaction.customID) {
+      btn.execute(interaction, client);
+    }
   }
 });
 
@@ -49,19 +74,21 @@ client.once("ready", () => {
   }
 
   console.log(`Logged in as ${client.user.tag}`);
-
-  const changingstatus = [
-    `Version: 1.1.4 | /help`,
-    `Watching Over ${client.guilds.cache.size} Servers`,
-  ];
-
-  let index = 0;
-  setInterval(() => {
-    if (index === changingstatus.length) index = 0;
-    const status = changingstatus[index];
-    client.user.setActivity(status, { type: "PLAYING" })
-    index++;
-  }, 5000);
+  
 });
+
+const changingstatus = [
+  `Nightly`, 
+  `${client.guilds.cache.size} Servers`
+];
+
+let index = 0;
+setInterval(() => {
+  if (index === changingstatus.length) index = 0;
+  const status = changingstatus[index];
+  client.user.setActivity(status, { type: "WATCHING" });
+  index++;
+}, 5000);
+
 
 client.login(process.env.TOKEN);

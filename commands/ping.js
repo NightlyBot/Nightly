@@ -2,6 +2,8 @@ const Discord = require("discord.js");
 const package = require('../package.json');
 module.exports = {
 	name: 'ping',
+	category: "utility",
+	permission: "ALL",
 	description: 'Returns the bots ping',
 	execute(interaction, client) {
 		const embed = new Discord.MessageEmbed()
