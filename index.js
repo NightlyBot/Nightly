@@ -36,23 +36,12 @@ client.on("interaction", async (interaction) => {
 
 client.on("interaction", async (interaction) => {
   if (!interaction.isMessageComponent() && interaction.componentType !== 'BUTTON') return;
-  var button = null;
 
   for (const file2 of buttonFiles) {
     var btn = require(`./buttons/${file2}`);
-
     if (btn.name === interaction.customID) {
-      buttton = btn;
-    
-    } else {
-      console.log(btn.name)
-      console.log(interaction.customID)
+      btn.execute(interaction, client);
     }
-  }
-  if (button !== null) {
-    button.execute(interaction, client);
-  } else {
-    console.log('false')
   }
 });
 
