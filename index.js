@@ -51,7 +51,7 @@ client.once("ready", () => {
   console.log(`Logged in as ${client.user.tag}`);
 
   const changingstatus = [
-    `Nightly Version: 1.0.0`,
+    `Version: 1.0.0 | /help`,
     `Watching Over ${client.guilds.cache.size} servers`,
   ];
 
@@ -59,7 +59,7 @@ client.once("ready", () => {
   setInterval(() => {
     if (index === changingstatus.length) index = 0;
     const status = changingstatus[index];
-    client.user.setActivity(status, { type: "PLAYING" }).catch(console.error);
+    client.user.setActivity(status, { type: "PLAYING" })
     index++;
   }, 5000);
 });
