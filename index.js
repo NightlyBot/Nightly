@@ -1,7 +1,7 @@
 ﻿const { Client, Intents } = require("discord.js");
 const Discord = require("discord.js");
 const fs = require("fs");
-require('dotenv').config();
+require("dotenv").config();
 
 const client = new Client({
   intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES],
@@ -11,6 +11,12 @@ client.commands = new Discord.Collection();
 
 const commandFiles = fs
   .readdirSync("./commands")
+  .filter((file) => file.endsWith(".js"));
+
+client.buttons = new Discord.Collection();
+
+const buttonFiles = fs
+  .readdirSync("./buttons")
   .filter((file) => file.endsWith(".js"));
 
 client.on("interaction", async (interaction) => {
@@ -24,8 +30,27 @@ client.on("interaction", async (interaction) => {
       command = cmd;
     }
   }
-if (command !== null) {
-  command.execute(interaction, client);}
+  if (command !== null) {
+    command.execute(interaction, client);
+  }
+});
+
+client.on("interaction", async (interaction) => {
+  if (!interaction.isMessageComponent() && interaction.componentType !== 'BUTTON') return;
+  var button = null;
+
+  for (const file of buttonFiles) {
+    var btn = require(`./buttons/${file}`);
+
+    if (btn.name === interaction.customID) {
+      buttton = btn;
+    }
+  }
+  if (button !== null) {
+    button.execute(interaction, client);
+  } else {
+    console.log('false')
+  }
 });
 
 client.once("ready", () => {
@@ -49,16 +74,13 @@ client.once("ready", () => {
   console.log(`Logged in as ${client.user.tag}`);
 });
 
-const changingstatus = [
-  `Nightly`,
-  `${client.guilds.cache.size} Servers`,
-];
+const changingstatus = [`Nightly`, `${client.guilds.cache.size} Servers`];
 
 let index = 0;
 setInterval(() => {
   if (index === changingstatus.length) index = 0;
   const status = changingstatus[index];
-  client.user.setActivity(status, { type: "WATCHING" })
+  client.user.setActivity(status, { type: "WATCHING" });
   index++;
 }, 5000);
 

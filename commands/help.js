@@ -15,13 +15,17 @@ module.exports = {
         const row = new Discord.MessageActionRow()
         .addComponents(
             new Discord.MessageButton()
-                .setCustomID('primary')
-                .setLabel('shiny button')
-                .setStyle('SUCCESS'),
+                .setCustomID('commands')
+                .setLabel('Commands')
+                .setStyle('PRIMARY'),
 			new Discord.MessageButton()
-                .setCustomID('extra shiny button')
-                .setLabel('another shiny button')
-                .setStyle('DANGER'),
+                .setURL(`https://discord.com/api/oauth2/authorize?client_id=${client.user.id}&permissions=8&scope=bot%20applications.commands`)
+                .setLabel('Invite')
+                .setStyle('LINK'),
+			new Discord.MessageButton()
+                .setURL('https://github.com/NightlyBot/Nightly')
+                .setLabel('GitHub')
+                .setStyle('LINK'),
         );
 			
      interaction.reply({ embeds: [embed],components: [row] });
