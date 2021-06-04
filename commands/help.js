@@ -2,6 +2,8 @@ const Discord = require("discord.js");
 const package = require('../package.json');
 module.exports = {
 	name: 'help',
+	category: 'misc',
+	permission: 'ALL',
 	description: 'Displays useful information about the bot',
 	execute(interaction, client) {
 		const embed = new Discord.MessageEmbed()

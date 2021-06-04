@@ -1,5 +1,6 @@
 ﻿const { Client, Intents } = require("discord.js");
 const Discord = require("discord.js");
+const package = require('./package.json');
 const fs = require("fs");
 require("dotenv").config();
 
@@ -20,17 +21,26 @@ const buttonFiles = fs
 
 client.on("interaction", async (interaction) => {
   if (!interaction.isCommand()) return;
-  var command = null;
 
   for (const file of commandFiles) {
     var cmd = require(`./commands/${file}`);
 
     if (cmd.name === interaction.commandName) {
-      command = cmd;
+      if (cmd.permission === "ALL") { 
+      cmd.execute(interaction, client);
+      } else {
+        if (interaction.member.permissions.has(cmd.permission) === true) {
+          cmd.execute(interaction, client);
+        } else {
+          const embed = new Discord.MessageEmbed()
+		        .setColor("#2F3136")
+		        .setTitle(":x: Invalid Permission Level")
+		        .setDescription("You do not have high enough permissions to execute this command")
+		        .setFooter(`Nightly ${package.build} ${package.version}`,client.user.displayAvatarURL());
+		        interaction.reply(embed);
+        }
+      }
     }
-  }
-  if (command !== null) {
-    command.execute(interaction, client);
   }
 });
 
