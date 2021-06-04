@@ -74,9 +74,13 @@ client.once("ready", () => {
   }
 
   console.log(`Logged in as ${client.user.tag}`);
+  
 });
 
-const changingstatus = [`Nightly`, `${client.guilds.cache.size} Servers`];
+const changingstatus = [
+  `Nightly`, 
+  `${client.guilds.cache.size} Servers`
+];
 
 let index = 0;
 setInterval(() => {
@@ -85,5 +89,6 @@ setInterval(() => {
   client.user.setActivity(status, { type: "WATCHING" });
   index++;
 }, 5000);
+
 
 client.login(process.env.TOKEN);
