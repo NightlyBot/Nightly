@@ -79,7 +79,7 @@ client.once("ready", () => {
 
 const changingstatus = [
   `Nightly`, 
-  `${client.user.cache.size} Users`
+  `${client.users.cache.size} Users`
 ];
 
 let index = 0;
