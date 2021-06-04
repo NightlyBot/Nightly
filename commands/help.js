@@ -6,8 +6,10 @@ module.exports = {
 	execute(interaction, client) {
 		const embed = new Discord.MessageEmbed()
 		.setColor("#2F3136")
-		.setTitle(":wave: Nightly")
-		.addField('What is Nightly?','Nightly is an [](open source)')
+		.setTitle("Nightly")
+		.addField('What is Nightly?','Nightly is an [open source](https://github.com/NightlyBot/Nightly) discord bot!')
+		.addField('How do I view a list of commands?','You can click the `Commands` button below')
+		.addField('Nightly Version:',package.version)
 		.setFooter(`Nightly ${package.build} ${package.version}`,client.user.displayAvatarURL());
 
         const row = new Discord.MessageActionRow()
@@ -21,7 +23,7 @@ module.exports = {
                 .setLabel('another shiny button')
                 .setStyle('DANGER'),
         );
-
+			
      interaction.reply({ embeds: [embed],components: [row] });
 
 	},
