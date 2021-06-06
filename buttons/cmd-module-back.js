@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 const package = require('../package.json');
 
 module.exports = {
-	name: 'commands',
+	name: 'cmd-module-back',
 	execute(interaction, client) {
 		const embed = new Discord.MessageEmbed()
 		.setColor("#2F3136")
@@ -30,6 +30,10 @@ module.exports = {
             new Discord.MessageButton()
                 .setCustomID('cmd-module-misc')
                 .setLabel('Misc')
+                .setStyle('PRIMARY'),
+            new Discord.MessageButton()
+                .setCustomID('help-cmd-back')
+                .setLabel('Back')
                 .setStyle('PRIMARY'),
 			
         );

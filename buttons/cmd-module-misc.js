@@ -2,12 +2,12 @@ const Discord = require("discord.js");
 const package = require('../package.json');
 
 module.exports = {
-	name: 'cmd-module-utility',
+	name: 'cmd-module-misc',
 	execute(interaction, client) {
 		const embed = new Discord.MessageEmbed()
 		.setColor("#2F3136")
 		.setTitle("Command Modules")
-        .addField("ping","Displays Nightly's latency",true)
+        .addField("help","Displays a list of commands",true)
 		.setFooter(`Nightly ${package.build} ${package.version}`,client.user.displayAvatarURL());
 
         const row = new Discord.MessageActionRow()
