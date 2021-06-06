@@ -10,23 +10,27 @@ module.exports = {
 		.setColor("#2F3136")
 		.setTitle("Verification")
 		.addField('How do I verify?','To verify your Roblox account, choose a method below')
-		.addField('Nightly Version:',package.version)
+		.addField('What method should I use?','You should use whichever method you are most familiar with')
+        .addField('Why should I verify?','Verifying will give you access to this server')
+        .addField('Custom Method:','This method will verify you by checking if a unique code is in your description')
+        .addField('RoVer Method:','This method will verify you using RoVer')
+        .addField('Bloxlink Method:','This method will verify you using Bloxlink')
 		.setFooter(`Nightly ${package.build} ${package.version}`,client.user.displayAvatarURL());
 
         const row = new Discord.MessageActionRow()
         .addComponents(
             new Discord.MessageButton()
-                .setCustomID('commands')
-                .setLabel('Commands')
+                .setCustomID('verify-custom')
+                .setLabel('Custom')
                 .setStyle('PRIMARY'),
 			new Discord.MessageButton()
-                .setURL(`https://discord.com/api/oauth2/authorize?client_id=${client.user.id}&permissions=8&scope=bot%20applications.commands`)
-                .setLabel('Invite')
-                .setStyle('LINK'),
+                .setCustomID('verify-rover')
+                .setLabel('RoVer')
+                .setStyle('PRIMARY'),
 			new Discord.MessageButton()
-                .setURL('https://github.com/NightlyBot/Nightly')
-                .setLabel('GitHub')
-                .setStyle('LINK'),
+                .setCustomID('verify-bloxlink')
+                .setLabel('Bloxlink')
+                .setStyle('PRIMARY'),
         );
 			
      interaction.reply({ embeds: [embed],components: [row] });
