@@ -6,8 +6,7 @@
   "build": "",
   "main": "index.js",
   "engines": {
-    "node": "14.x",
-    "npm": "6.x"
+    "node": "14.x"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -16,13 +15,7 @@
   "author": "Starnamics",
   "license": "MIT",
   "dependencies": {
-    "ascii-table": "0.0.9",
-    "discord.js": "github:monbrey/discord.js#message-components",
-    "dotenv": "^10.0.0",
-    "noblox.js": "^4.8.5",
+    "discord.js": "^13.0.0-dev.dec191aa1e4f22690285ca06c6eee7e6086b2930",
     "requests": "^0.3.0"
-  },
-  "devDependencies": {
-    "colors": "^1.4.0"
   }
 }
