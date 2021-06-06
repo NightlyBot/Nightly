@@ -6,7 +6,7 @@ module.exports = {
 	execute(interaction, client) {
 		const embed = new Discord.MessageEmbed()
 		.setColor("#2F3136")
-		.setTitle("Command Modules")
+		.setTitle("Moderation Commands")
         .addField("None","No commands are currently available",true)
 		.setFooter(`Nightly ${package.build} ${package.version}`,client.user.displayAvatarURL());
 
