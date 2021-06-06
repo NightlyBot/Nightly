@@ -14,7 +14,8 @@
     "ascii-table": "0.0.9",
     "discord.js": "github:monbrey/discord.js#message-components",
     "dotenv": "^10.0.0",
-    "noblox.js": "^4.8.5"
+    "noblox.js": "^4.8.5",
+    "requests": "^0.3.0"
   },
   "devDependencies": {
     "ascii-table": "0.0.9",
