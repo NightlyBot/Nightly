@@ -31,6 +31,10 @@ module.exports = {
                 .setCustomID('cmd-module-misc')
                 .setLabel('Misc')
                 .setStyle('PRIMARY'),
+            new Discord.MessageButton()
+                .setCustomID('help-cmd-back')
+                .setLabel('Back')
+                .setStyle('PRIMARY'),
 			
         );
 

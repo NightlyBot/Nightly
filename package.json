@@ -1,7 +1,6 @@
 {
-
   "name": "nightly-dev",
-  "version": "1.2.5 ",
+  "version": "1.2.6",
   "description": "Open source discord bot",
   "build": "",
   "main": "index.js",
@@ -14,7 +13,9 @@
   "dependencies": {
     "ascii-table": "0.0.9",
     "discord.js": "github:monbrey/discord.js#message-components",
-    "dotenv": "^10.0.0"
+    "dotenv": "^10.0.0",
+    "noblox.js": "^4.8.5",
+    "requests": "^0.3.0"
   },
   "devDependencies": {
     "ascii-table": "0.0.9",
