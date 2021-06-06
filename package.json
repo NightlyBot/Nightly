@@ -1,9 +1,9 @@
 {
-  "name": "nightly-dev",
+  "name": "nightly",
   "version": "1.2.6",
   "description": "Open source discord bot",
-  "build": "Beta",
   "repository": "https://github.com/NightlyBot/Nightly",
+  "build": "",
   "main": "index.js",
   "engines": {
     "node": "14.x",
