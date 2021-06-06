@@ -1,7 +1,8 @@
 {
-  "name": "nightly-dev",
+  "name": "nightly",
   "version": "1.2.6",
   "description": "Open source discord bot",
+  "repository": "https://github.com/NightlyBot/Nightly",
   "build": "",
   "main": "index.js",
   "engines": {
@@ -22,7 +23,6 @@
     "requests": "^0.3.0"
   },
   "devDependencies": {
-    "ascii-table": "0.0.9",
     "colors": "^1.4.0"
   }
 }
