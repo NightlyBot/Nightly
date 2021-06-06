@@ -3,7 +3,7 @@
   "version": "1.2.6",
   "description": "Open source discord bot",
   "repository": "https://github.com/NightlyBot/Nightly",
-  "build": "",
+  "build": "Beta",
   "main": "index.js",
   "engines": {
     "node": "14.x"
