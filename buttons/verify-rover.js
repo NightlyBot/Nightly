@@ -23,7 +23,7 @@ module.exports = {
 
       const row = new Discord.MessageActionRow().addComponents(
         new Discord.MessageButton()
-          .setCustomID("verify-check-rover-status")
+          .setCustomID("verify-check-rover")
           .setLabel("Verify")
           .setStyle("PRIMARY"),
         new Discord.MessageButton()

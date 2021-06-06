@@ -6,8 +6,11 @@ module.exports = {
   name: "verify-check-rover",
   execute(interaction, client) {
     console.log("good")
+    if (interaction.message.interaction.user.id === interaction.user.id) {
+    console.log("good")
       requests(`https://verify.eryn.io/api/user/${interaction.member.id}`, {})
         .on("data", function (chunk) {
+        chunk = JSON.parse(chunk);
           if (chunk.status === "ok") {
 
             const embed1 = new Discord.MessageEmbed()
@@ -35,9 +38,9 @@ module.exports = {
             interaction.update({ embeds: [embed1], components: [] });
 
             var role = interaction.member.guild.roles.cache.find(role => role.name === "Verified");
-            interaction.member.roles.add(role).catch(interaction.update({ embeds: [embedErr1], components: [] }))
+            interaction.member.roles.add(role).catch((e) => {(interaction.update({ embeds: [embedErr1], components: [] }))})
 
-            interaction.member.setNickname(chunk.robloxUsername).catch()
+            interaction.member.setNickname(chunk.robloxUsername).catch((e) => {})
 
           } else {
             const embed1 = new Discord.MessageEmbed()
@@ -69,5 +72,6 @@ module.exports = {
 
           interaction.update({ embeds: [embedErr], components: [] })};
         });
+    }
   },
 };

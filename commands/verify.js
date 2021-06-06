@@ -13,7 +13,7 @@ module.exports = {
 		.addField('What method should I use?','You should use whichever method you are most familiar with')
         .addField('Why should I verify?','Verifying will give you access to this server')
         .addField('RoVer Method:','This method will verify you using RoVer')
-        .addField('Bloxlink Method:','This method will verify you using Bloxlink')
+        .addField('Bloxlink Method:','This method will verify you using Bloxlink (*currently disabled*)')
 		.setFooter(`Nightly ${package.build} ${package.version}`,client.user.displayAvatarURL());
 
         const row = new Discord.MessageActionRow()
@@ -25,7 +25,7 @@ module.exports = {
 			new Discord.MessageButton()
                 .setCustomID('verify-bloxlink')
                 .setLabel('Bloxlink')
-                .setStyle('PRIMARY'),
+                .setStyle('SECONDARY'),
         );
 			
      interaction.reply({ embeds: [embed],components: [row] });
