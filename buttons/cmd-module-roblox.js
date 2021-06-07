@@ -8,7 +8,7 @@ module.exports = {
 		.setColor("#2F3136")
 		.setTitle("Roblox Commands")
         .addField("verify","Links your Roblox account to this server",true)
-        .addField("reverify (TEMPORARILY UNAVAILABLE)","Links another Roblox account to this server",true)
+        .addField("reverify (*temporarily disabled*)","Links another Roblox account to this server",true)
 
 		.setFooter(`Nightly ${package.build} ${package.version}`,client.user.displayAvatarURL());
 
