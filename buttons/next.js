@@ -4,7 +4,6 @@ const package = require("../package.json");
 module.exports = {
   name: "back",
   execute(interaction, client) {
-    const embed = new Discord.MessageEmbed();
     const embed = new Discord.MessageEmbed()
       .setColor("#2F3136")
       .setTitle("Update 1.2.6")
