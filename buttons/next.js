@@ -2,18 +2,17 @@ const Discord = require("discord.js");
 const package = require("../package.json");
 
 module.exports = {
-  name: "cmd-module-roblox",
+  name: "back",
   execute(interaction, client) {
+    const embed = new Discord.MessageEmbed();
     const embed = new Discord.MessageEmbed()
       .setColor("#2F3136")
-      .setTitle("Roblox Commands")
-      .addField("verify", "Links your Roblox account to this server", true)
+      .setTitle("Update 1.2.6")
       .addField(
-        "reverify (*temporarily disabled*)",
-        "Links another Roblox account to this server",
-        true
+        "Whats New?",
+        `- Added Roblox Verification with RoVer\n- Added help command and verify command, reverify command is currently disabled`
       )
-
+      .addField("Extras", "Bug fixes and extra features")
       .setFooter(
         `Nightly ${package.build} ${package.version}`,
         client.user.displayAvatarURL()
@@ -21,13 +20,9 @@ module.exports = {
 
     const row = new Discord.MessageActionRow().addComponents(
       new Discord.MessageButton()
-        .setCustomID("cmd-module-back")
+        .setCustomID("back")
         .setLabel("Back")
         .setStyle("PRIMARY")
     );
-
-    interaction.update({ embeds: [embed], components: [row] }).catch((e) => {
-      console.log(e);
-    });
   },
 };
