@@ -4,7 +4,7 @@ module.exports = {
 	name: 'ping',
 	category: "utility",
 	permission: "ALL",
-	description: 'Returns the bots ping',
+	description: `Displays Nightly's latency`,
 	execute(interaction, client) {
 		const embed = new Discord.MessageEmbed()
 		.setColor("#2F3136")
