@@ -7,8 +7,8 @@ module.exports = {
     const embed = new Discord.MessageEmbed()
       .setColor("#2F3136")
       .setTitle("Update 1.1.6")
-      .addField("Added ping command")
-      .addField("Bug fixes and optimization updates")
+      .addField("Whats New?", "Added ping command")
+      .addField("Extras", "Bug fixes and optimization updates")
       .setFooter(
         `Nightly ${package.build} ${package.version}`,
         client.user.displayAvatarURL()
