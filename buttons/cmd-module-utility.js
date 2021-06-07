@@ -8,6 +8,7 @@ module.exports = {
       .setColor("#2F3136")
       .setTitle("Utility Commands")
       .addField("ping", "Displays Nightly's latency", true)
+      .addField("changelog", "Displays new updates about the bot", true)
       .setFooter(
         `Nightly ${package.build} ${package.version}`,
         client.user.displayAvatarURL()

@@ -7,7 +7,7 @@ module.exports = {
     const embed = new Discord.MessageEmbed()
       .setColor("#2F3136")
       .setTitle("Roblox Commands")
-      .addField("verify", "Links your Roblox account to this server", true)
+      .addField("verify", "Links your Roblox account to the current server", true)
       .addField(
         "reverify (*temporarily disabled*)",
         "Links another Roblox account to this server",
