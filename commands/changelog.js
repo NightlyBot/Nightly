@@ -9,7 +9,7 @@ module.exports = {
 		const embed = new Discord.MessageEmbed()
 		.setColor("#2F3136")
 		.setTitle("Update 1.2.6")
-		.addField('Added Roblox Verfication with [RoVer](https://rover.link/)')
+		.addField('Added Roblox Verfication with RoVer')
 		.addField('Added help command and verify command, reverify command is currently disabled')
 		.addField('Bug fixes and extra features')
 		.setFooter(`Nightly ${package.build} ${package.version}`,client.user.displayAvatarURL());
