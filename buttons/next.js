@@ -10,7 +10,7 @@ module.exports = {
       .setTitle("Update 1.2.6")
       .addField(
         "Whats New?",
-        `- Added Roblox Verification with RoVer\n- Added help command and verify command, reverify command is currently disabled`
+        `Added Roblox Verification with RoVer\nAdded help command and verify command, reverify command is currently disabled`
       )
       .addField("Extras", "Bug fixes and extra features")
       .setFooter(
@@ -24,5 +24,8 @@ module.exports = {
         .setLabel("Back")
         .setStyle("PRIMARY")
     );
+    interaction.update({ embeds: [embed], components: [row] }).catch((e) => {
+      console.log(e);
+    });
   },
 };

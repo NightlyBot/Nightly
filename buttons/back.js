@@ -20,5 +20,8 @@ module.exports = {
         .setLabel("Next Page")
         .setStyle("PRIMARY")
     );
+    interaction.update({ embeds: [embed], components: [row] }).catch((e) => {
+      console.log(e);
+    });
   },
 };
