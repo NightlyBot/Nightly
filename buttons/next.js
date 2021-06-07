@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 const package = require("../package.json");
 
 module.exports = {
-  name: "back",
+  name: "next",
   execute(interaction, client) {
     const embed = new Discord.MessageEmbed()
       .setColor("#2F3136")
