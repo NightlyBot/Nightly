@@ -3,6 +3,7 @@ const package = require("../package.json");
 module.exports = {
   name: "changelog",
   category: "misc",
+  options: [],
   permission: "ALL",
   description: "Displays new updates about the bot",
   execute(interaction, client) {

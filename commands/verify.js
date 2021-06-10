@@ -3,6 +3,7 @@ const package = require("../package.json");
 module.exports = {
   name: "verify",
   category: "roblox",
+  options: [],
   permission: "ALL",
   description: "Links your Roblox account to the current server",
   execute(interaction, client) {
