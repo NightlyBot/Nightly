@@ -66,6 +66,8 @@ client.on("interaction", async (interaction) => {
 
 client.once("ready", () => {
   client.application.commands.set([]);
+  client.guilds.cache.get("852526359925751820").commands.set([]);
+  client.guilds.cache.get("839783309113556992").commands.set([]);
   for (const file of commandFiles) {
     const command = require(`./commands/${file}`);
 
@@ -75,9 +77,12 @@ client.once("ready", () => {
       options: command.options,
     };
 
-    client.application.commands.create(data).catch((e) => {
-      console.log(e);
-    });
+    client.guilds.cache
+      .get("852526359925751820")
+      .commands.create(data)
+      .catch((e) => {
+        console.log(e);
+      });
   }
 
   console.log(`Logged in as ${client.user.tag}`);
