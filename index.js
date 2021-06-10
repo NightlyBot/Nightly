@@ -72,14 +72,12 @@ client.once("ready", () => {
     const data = {
       name: `${command.name}`,
       description: `${command.description}`,
+      options: command.options,
     };
 
-    client.guilds.cache
-      .get("839783309113556992")
-      .commands.create(data)
-      .catch((e) => {
-        console.log(e);
-      });
+    client.application.commands.create(data).catch((e) => {
+      console.log(e);
+    });
   }
 
   console.log(`Logged in as ${client.user.tag}`);

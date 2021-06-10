@@ -3,6 +3,7 @@ const package = require("../package.json");
 module.exports = {
   name: "ping",
   category: "utility",
+  options: [],
   permission: "ALL",
   description: `Displays Nightly's latency`,
   execute(interaction, client) {
@@ -14,17 +15,25 @@ module.exports = {
         `Nightly ${package.build} ${package.version}`,
         client.user.displayAvatarURL()
       );
-    interaction.reply(embed);
 
-    const pingEmbed = new Discord.MessageEmbed()
-      .setColor("#2F3136")
-      .setTitle(":ping_pong: Pong!")
-      .addField(`:robot: Latency:`, `${client.ws.ping}ms`)
-      .setFooter(
-        `Nightly ${package.build} ${package.version}`,
-        client.user.displayAvatarURL()
-      );
+    process.env.TZ = "Etc/UTC";
 
-    interaction.editReply(pingEmbed);
+    interaction.reply({ embeds: [embed] }).then(() => {
+      const pingEmbed = new Discord.MessageEmbed()
+        .setColor("#2F3136")
+        .setTitle(":ping_pong: Pong!")
+        .addField(`🤖 Bot Latency:`, `${client.ws.ping}ms`)
+        .addField(
+          `🌐 API Latency:`,
+          `${Date.now() - interaction.createdTimestamp}ms`
+        )
+        .addField(`⌛ Database Latency:`, `N/A`)
+        .setFooter(
+          `Nightly ${package.build} ${package.version}`,
+          client.user.displayAvatarURL()
+        );
+
+      interaction.editReply({ embeds: [pingEmbed] });
+    });
   },
 };

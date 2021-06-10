@@ -1,6 +1,6 @@
 {
   "name": "nightly",
-  "version": "1.2.6",
+  "version": "1.2.7",
   "description": "Open source discord bot",
   "repository": "https://github.com/NightlyBot/Nightly",
   "build": "",
@@ -15,7 +15,7 @@
   "author": "Starnamics",
   "license": "MIT",
   "dependencies": {
-    "discord.js": "^13.0.0-dev.dec191aa1e4f22690285ca06c6eee7e6086b2930",
+    "discord.js": "^13.0.0-dev.fbcbb29884a35308a7af2169f5f9ae5658c458e8",
     "dotenv": "^10.0.0",
     "mongoose": "^5.12.13",
     "requests": "^0.3.0"
