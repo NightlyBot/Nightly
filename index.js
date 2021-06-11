@@ -67,7 +67,6 @@ client.on("interaction", async (interaction) => {
 client.once("ready", () => {
   client.application.commands.set([]);
   client.guilds.cache.get("852526359925751820").commands.set([]);
-  client.guilds.cache.get("839783309113556992").commands.set([]);
   for (const file of commandFiles) {
     const command = require(`./commands/${file}`);
 
