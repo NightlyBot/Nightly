@@ -76,8 +76,7 @@ client.once("ready", () => {
       options: command.options,
     };
 
-    client.guilds.cache
-      .get("852526359925751820")
+    client.application
       .commands.create(data)
       .catch((e) => {
         console.log(e);
