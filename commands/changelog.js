@@ -20,13 +20,6 @@ module.exports = {
         client.user.displayAvatarURL()
       );
 
-    const row = new Discord.MessageActionRow().addComponents(
-      new Discord.MessageButton()
-        .setCustomID("back")
-        .setLabel("Back")
-        .setStyle("PRIMARY")
-    );
-
-    interaction.reply({ embeds: [embed], components: [row] });
+    interaction.reply({ embeds: [embed] });
   },
 };
